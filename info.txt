@@ -1,0 +1,61 @@
+# Python
+
+## VSCode basics
+Treminal: Press Ctrl + `
+Comman palette: Ctrl + Shift + P
+
+## Virtual env
+Creat env
+    python -m venv .venv
+    Command palette + "Create environment..."   
+
+Activate if needed
+    .venv\Scripts\activate
+    Command palette + "Select interperter" 
+
+## Interactive
+Run in Interactive: Shift + Enter
+
+## Dependencies
+
+pip install requests pandas numpy
+pip install fastapi[standard]
+pip install -r requirements.txt
+pip freeze > requirements.txt
+
+fastapi -- Framework for creating APIs
+uvicorn -- Host for API
+requests -- Framework for API calls
+ipykernel -- Jupyter Interactive
+
+## Depencencies - for API
+pip install fastapi[standard] requests uvicorn // basics for API hosting
+
+## Depencencies - Interactive
+pip install ipykernel
+
+# Runtime
+
+## Host on uvicorn
+uvicorn app.main:app --reload
+python -m uvicorn app.main:app --reload
+
+# Containers
+
+## Podman / Containers - The Manual Build (Command Line)
+
+podman build -t myazure-api-weather:v1 .
+podman images
+
+## AZ Login here
+
+...
+
+## Tag and upload to azure
+podman tag myazure-api-weather:v1 <AZURE-CR>.azurecr.io/myazure-api-weather:v1
+podman push <AZURE-CR>.azurecr.io/myazure-api-weather:v1
+az acr repository list --name <AZURE-CR>.azurecr.io --output table
+
+
+## Azure Web app
+Turn on App Service logs
